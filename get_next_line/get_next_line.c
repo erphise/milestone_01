@@ -101,4 +101,19 @@ char	*get_next_line(int fd)
 	}
 	line = extract_line(&buffer);
 	return (line);
-}
+}/*
+#include <stdio.h>
+
+int	main()
+{
+	int		fd;
+	char	*line;
+	int		lines;
+
+	lines = 1;
+	fd = open("test.txt", O_RDONLY);
+
+	while ((line = get_next_line(fd)))
+		printf("%d->%s\n", lines++, line);
+	return (0);
+}*/
