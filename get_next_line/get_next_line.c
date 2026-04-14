@@ -104,16 +104,20 @@ char	*get_next_line(int fd)
 }/*
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 	int		fd;
 	char	*line;
-	int		lines;
 
-	lines = 1;
 	fd = open("test.txt", O_RDONLY);
+	if (fd < 0)
+		return (1);
 
 	while ((line = get_next_line(fd)))
-		printf("%d->%s\n", lines++, line);
+	{
+		printf("%s\n", line);
+		free(line);
+	}
+	close(fd);
 	return (0);
 }*/
