@@ -59,9 +59,9 @@ static char	*extract_line(char **buffer)
 	if (!*buffer)
 		return (NULL);
 	i = 0;
-	while ((*buffer)[i] && (*buffer)[i] != '\n')
+	while ((*buffer)[i] && (*buffer)[i] != VAR)
 		i++;
-	if ((*buffer)[i] == '\n')
+	if ((*buffer)[i] == VAR)
 		i++;
 	line = ft_strndup(*buffer, i);
 	if (!line)
@@ -85,7 +85,7 @@ char	*get_next_line(int fd)
 		return (free_memory(&buffer), NULL);
 	while (1)
 	{
-		if (!buffer || !ft_strchr(buffer, '\n'))
+		if (!buffer || !ft_strchr(buffer, VAR))
 		{
 			bytes_read = read_from_file(fd, &buffer);
 			if (bytes_read <= 0)
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 	}
 	line = extract_line(&buffer);
 	return (line);
-}/*
+}
 #include <stdio.h>
 
 int	main(void)
@@ -120,4 +120,4 @@ int	main(void)
 	}
 	close(fd);
 	return (0);
-}*/
+}

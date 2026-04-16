@@ -17,6 +17,10 @@
 #  define BUFFER_SIZE 42
 # endif
 
+#ifndef VAR
+# define VAR '\n'
+#endif
+
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
