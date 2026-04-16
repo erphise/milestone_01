@@ -38,7 +38,7 @@ int main(void)
     if (fd < 0)
         return (1);
     
-    while (line = get_next_line(fd))
+    while ((line = get_next_line(fd)))
     {
         printf("%s\n", line);
         free(line);
