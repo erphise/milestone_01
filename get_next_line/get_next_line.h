@@ -6,7 +6,7 @@
 /*   By: berhugue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 22:59:40 by berhugue          #+#    #+#             */
-/*   Updated: 2026/04/14 10:56:30 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:50:27 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-#ifndef VAR
-# define VAR '\n'
-#endif
 
 # include <fcntl.h>
 # include <stdlib.h>

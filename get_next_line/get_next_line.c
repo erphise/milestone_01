@@ -6,7 +6,7 @@
 /*   By: berhugue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 22:58:38 by berhugue          #+#    #+#             */
-/*   Updated: 2026/04/14 10:56:01 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/04/16 17:49:57 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ static char	*extract_line(char **buffer)
 	if (!*buffer)
 		return (NULL);
 	i = 0;
-	while ((*buffer)[i] && (*buffer)[i] != VAR)
+	while ((*buffer)[i] && (*buffer)[i] != '\n')
 		i++;
-	if ((*buffer)[i] == VAR)
+	if ((*buffer)[i] == '\n')
 		i++;
 	line = ft_strndup(*buffer, i);
 	if (!line)
@@ -85,7 +85,7 @@ char	*get_next_line(int fd)
 		return (free_memory(&buffer), NULL);
 	while (1)
 	{
-		if (!buffer || !ft_strchr(buffer, VAR))
+		if (!buffer || !ft_strchr(buffer, '\n'))
 		{
 			bytes_read = read_from_file(fd, &buffer);
 			if (bytes_read <= 0)
@@ -101,23 +101,4 @@ char	*get_next_line(int fd)
 	}
 	line = extract_line(&buffer);
 	return (line);
-}
-#include <stdio.h>
-
-int	main(void)
-{
-	int		fd;
-	char	*line;
-
-	fd = open("test.txt", O_RDONLY);
-	if (fd < 0)
-		return (1);
-
-	while ((line = get_next_line(fd)))
-	{
-		printf("%s\n", line);
-		free(line);
-	}
-	close(fd);
-	return (0);
 }
