@@ -11,33 +11,14 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-// Util functions
-t_list	*ft_lstnew(int value);
-t_list	*ft_lstlast(t_list *head);
-void	ft_lstadd_front(t_list **stack, t_list *new);
-void	ft_lstadd_back(t_list **stack, t_list *new);
-void	printList(t_list *head);
-int		ft_lstsize(t_list *head);
-
 void	ft_error(char *msg);
-void	ft_check_args(int argc, char **argv);
-int		is_sorted(t_list **stack);
-int		get_distance(t_list **stack, int index);
-void	make_top(t_list **stack, int distance);
-void	free_stack(t_list **stack);
-void	ft_free(char **str);
+int		ft_lstsize(t_list *head);
+t_list	*ft_lstlast(t_list *head);
 
-// Algorithm utils
-void	radix_sort(t_list **stack_a, t_list **stack_b);
-void	simple_sort(t_list **stack_a, t_list **stack_b);
-void	index_stack(t_list **stack);
-void	sort_5(t_list **stack_a, t_list **stack_b);
-
-// Instruction functions
 int		swap(t_list **stack);
 int		push(t_list **stack_to, t_list **stack_from);
 int		rotate(t_list **stack);
-int		reverseRotate(t_list **stack);
+int		reverse_rotate(t_list **stack);
 
 int		sa(t_list **stack_a);
 int		sb(t_list **stack_b);

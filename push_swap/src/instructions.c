@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-// Swaps first two elements of a stack | sa and sb
-
 int	swap(t_list **stack)
 {
 	t_list	*head;
@@ -14,7 +12,7 @@ int	swap(t_list **stack)
 	head = *stack;
 	next = head->next;
 	if (!head && !next)
-		ft_error("Error occured while swapping!");
+		ft_error("Error");
 	tmp_val = head->value;
 	tmp_index = head->index;
 	head->value = next->value;
@@ -49,8 +47,6 @@ int	ss(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("ss", 1);
 	return (0);
 }
-
-// Takes the first element of one stack and puts it at the top of another | pa and pb
 
 int	push(t_list **stack_to, t_list **stack_from)
 {
@@ -95,8 +91,6 @@ int	pb(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-// Shift up all elements of a stack by 1. The first element becomes the last one | ra and rb
-
 int	rotate(t_list **stack)
 {
 	t_list	*head;
@@ -138,10 +132,7 @@ int	rr(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
-
-// Shifts down all elements of a stack by 1. The last element becomes the first one | rra and rrb
-
-int	reverseRotate(t_list **stack)
+int	reverse_rotate(t_list **stack)
 {
 	t_list	*head;
 	t_list	*tail;
@@ -166,7 +157,7 @@ int	reverseRotate(t_list **stack)
 
 int	rra(t_list **stack_a)
 {
-	if (reverseRotate(stack_a) == -1)
+	if (reverse_rotate(stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("rra", 1);
 	return (0);
@@ -174,7 +165,7 @@ int	rra(t_list **stack_a)
 
 int	rrb(t_list **stack_b)
 {
-	if (reverseRotate(stack_b) == -1)
+	if (reverse_rotate(stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rrb", 1);
 	return (0);
@@ -184,8 +175,8 @@ int	rrr(t_list **stack_a, t_list **stack_b)
 {
 	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
-	reverseRotate(stack_a);
-	reverseRotate(stack_b);
+	reverse_otate(stack_a);
+	reverse_otate(stack_b);
 	ft_putendl_fd("rrr", 1);
 	return (0);
 }
