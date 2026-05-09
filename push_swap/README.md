@@ -80,8 +80,6 @@ This process repeats until all bits of the maximum index have been processed.
 
 ## Instructions
 
-### Compile
-
 First we need to compile the program:
 
 ```bash
