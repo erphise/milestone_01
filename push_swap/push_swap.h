@@ -6,7 +6,7 @@
 /*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 10:41:06 by ugutierr          #+#    #+#             */
-/*   Updated: 2026/05/07 18:30:10 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:28:23 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,10 +118,10 @@ int				is_sorted(t_node **stack);
 int				get_distance(t_node **stack, int index);
 int				get_min(t_node **stack, int val);
 void			sort_3(t_node **stack_a, t_env *env);
-void			sort_4(t_node **stack_a, t_node **stack_b, t_env *env);
-void			sort_5(t_node **stack_a, t_node **stack_b, t_env *env);
-void			push_swap_simple(t_node **stack_a, t_node **stack_b, t_env *env);
+void			move_min_top(t_node **a, t_env *env);
+void			sort_simple(t_node **a, t_node **b, t_env *env);
+void			push_swap_simple(t_node **a, t_node **b, t_env *env);
 int				get_max_bits(t_node **stack);
-void			push_swap_complex(t_node **stack_a, t_node **stack_b, t_env *env);
+void			push_swap_complex(t_node **a, t_node **b, t_env *env);
 
 #endif

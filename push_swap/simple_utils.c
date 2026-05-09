@@ -6,7 +6,7 @@
 /*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:14:15 by berhugue          #+#    #+#             */
-/*   Updated: 2026/05/07 18:36:37 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/05/09 16:20:37 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	get_distance(t_node **stack, int index)
 	while (head)
 	{
 		if (head->index == index)
-			break ;
+			return (distance);
 		distance++;
 		head = head->next;
 	}
-	return (distance);
+	return (-1);
 }
