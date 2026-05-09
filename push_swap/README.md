@@ -40,7 +40,7 @@ We divided the project into two parts: the parsing and the algorithms. ugutierr 
 
 ## Explanation
 
-### Simple Algorithm O(n²)
+### Simple Algorithm (O(n²))
 
 The simple strategy is based on a selection sort adaptation. A selection-sort adaptation was chosen because it is easy to implement, efficient for small or nearly sorted inputs, and minimizes unnecessary complexity.
 
@@ -53,7 +53,7 @@ Once only 3 numbers remain in stack `a`, a dedicated `sort_3` optimization handl
 
 Finally, all elements are pushed back from stack `b` to stack `a` in sorted order.
 
-### Medium Algorithm O(n√n)
+### Medium Algorithm (O(n√n))
 
 The medium strategy uses a chunk-based sorting approach. A chunk-based strategy was chosen because dividing the stack into `√n` ranges significantly reduces operations compared to quadratic approaches while remaining relatively simple.
 
@@ -62,7 +62,7 @@ Elements belonging to the current chunk range are pushed from stack `a` to stack
 
 Once all chunks are moved to stack `b`, the algorithm rebuilds stack `a` by always moving the largest indexed element back to the top before pushing it.
 
-### Complex Algorithm O(n log n)
+### Complex Algorithm (O(n log n))
 
 The complex strategy uses a binary radix sort adapted to the Push Swap constraints. Binary radix sort was chosen because it scales efficiently on large datasets, is reliable under Push Swap constraints, and consistently achieves good benchmark results.
 
@@ -89,7 +89,7 @@ make
 ```
 Once it's finished, we can either run it without any flags, which will use the adaptive strategy by default:
 ```bash
-./push_swap 2 1 3 6 5 8
+./push_swap <numbers>
 ```
 Or we can manually select a strategy:
 ```bash
@@ -101,15 +101,15 @@ Or we can manually select a strategy:
 
 ./push_swap --adaptive 5 4 3 2 1
 ```
+The numbers provided can be positive or negative integers. There must not be any duplicates. If the arguments are valid, the program will output the most efficient list of actions to sort the list.
+
 For the bonus part, we can compile the checker with:
 ```bash
 make bonus
 ```
 And run it with:
 ```bash
-ARG="4 67 3 87 23"
-
-./push_swap $ARG | ./checker $ARG
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 ```
 
 ---
