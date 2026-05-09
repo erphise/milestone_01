@@ -7,9 +7,9 @@
 `push_swap` is a sorting algorithm project focused on sorting a stack of integers using a limited set of operations and the lowest possible number of moves.
 
 The program uses two stacks (`a` and `b`) and implements multiple sorting strategies depending on the disorder of the input:
-- Simple algorithm — `O(n²)`
-- Medium algorithm — `O(n√n)`
-- Complex algorithm — `O(n log n)`
+- Simple algorithm —> `O(n²)`
+- Medium algorithm —> `O(n√n)`
+- Complex algorithm —> `O(n log n)`
 - Adaptive algorithm based on disorder metrics
 
 The goal of the project is to understand:
