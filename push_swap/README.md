@@ -20,7 +20,7 @@ The goal of the project is to understand:
 
 We divided the project into two parts: the parsing and the algorithms. ugutierr did the parsing and berhugue did the algorithms.
 
-### Contents
+### Instructions
 
 | Code  | Instruction                         | Action                                                 |
 | ----- | ----------------------------------- | ------------------------------------------------------ |
@@ -40,7 +40,7 @@ We divided the project into two parts: the parsing and the algorithms. ugutierr 
 
 ## Explanation
 
-### Simple Algorithm — O(n²)
+### Simple Algorithm O(n²)
 
 The simple strategy is based on a selection sort adaptation. A selection-sort adaptation was chosen because it is easy to implement, efficient for small or nearly sorted inputs, and minimizes unnecessary complexity.
 
@@ -53,7 +53,7 @@ Once only 3 numbers remain in stack `a`, a dedicated `sort_3` optimization handl
 
 Finally, all elements are pushed back from stack `b` to stack `a` in sorted order.
 
-### Medium Algorithm — O(n√n)
+### Medium Algorithm O(n√n)
 
 The medium strategy uses a chunk-based sorting approach. A chunk-based strategy was chosen because dividing the stack into `√n` ranges significantly reduces operations compared to quadratic approaches while remaining relatively simple.
 
@@ -62,7 +62,7 @@ Elements belonging to the current chunk range are pushed from stack `a` to stack
 
 Once all chunks are moved to stack `b`, the algorithm rebuilds stack `a` by always moving the largest indexed element back to the top before pushing it.
 
-### Complex Algorithm — O(n log n)
+### Complex Algorithm O(n log n)
 
 The complex strategy uses a binary radix sort adapted to the Push Swap constraints. Binary radix sort was chosen because it scales efficiently on large datasets, is reliable under Push Swap constraints, and consistently achieves good benchmark results.
 
