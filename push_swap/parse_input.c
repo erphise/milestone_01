@@ -6,7 +6,7 @@
 /*   By: ugutierr <ugutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:45:35 by ugutierr          #+#    #+#             */
-/*   Updated: 2026/05/03 15:05:04 by ugutierr         ###   ########.fr       */
+/*   Updated: 2026/05/10 11:50:33 by ugutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_list	*create_list(int ac, char **av)
 			continue ;
 		if (!addnbrs(&l, av[i]))
 		{
-			printf("NULL");
 			ft_lstclear(&l, free);
 			return (NULL);
 		}

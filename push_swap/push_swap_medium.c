@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_medium.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ugutierr <ugutierr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 17:04:14 by ugutierr          #+#    #+#             */
-/*   Updated: 2026/05/03 18:52:39 by ugutierr         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:44:00 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ int	ft_sqrt(unsigned long n)
 	return (i - 1);
 }
 
-void	get_chunks(t_node **a, t_node **b, int chunk_size, t_env *env)
+void	get_chunks(t_node **a, t_node **b, t_env *env, bool print)
 {
 	int	min;
 	int	max;
 	int	pushed;
+	int	chunk_size;
 
+	chunk_size = ft_sqrt(env->len);
 	min = 0;
 	max = chunk_size;
 	pushed = 0;
@@ -37,11 +39,11 @@ void	get_chunks(t_node **a, t_node **b, int chunk_size, t_env *env)
 	{
 		if (min <= (*a)->index && (*a)->index < max)
 		{
-			pb(a, b, env, true);
+			pb(a, b, env, print);
 			pushed++;
 		}
 		else
-			ra(a, env, true);
+			ra(a, env, print);
 		if (pushed == chunk_size)
 		{
 			min += chunk_size;
@@ -66,7 +68,7 @@ int	get_position(t_node *a, int index)
 	return (-1);
 }
 
-void	push_chunks(t_node **a, t_node **b, t_env *env)
+void	push_chunks(t_node **a, t_node **b, t_env *env, bool print)
 {
 	int	max;
 	int	pos;
@@ -78,22 +80,19 @@ void	push_chunks(t_node **a, t_node **b, t_env *env)
 		if (pos < max / 2)
 		{
 			while ((*b)->index != max)
-				rb(b, env, true);
+				rb(b, env, print);
 		}
 		else
 		{
 			while ((*b)->index != max)
-				rrb(b, env, true);
+				rrb(b, env, print);
 		}
-		pa(a, b, env, true);
+		pa(a, b, env, print);
 	}
 }
 
-void	push_swap_medium(t_node **a, t_node **b, t_env *env)
+void	push_swap_medium(t_node **a, t_node **b, t_env *env, bool print)
 {
-	int	chunk_size;
-
-	chunk_size = ft_sqrt(env->len);
-	get_chunks(a, b, chunk_size, env);
-	push_chunks(a, b, env);
+	get_chunks(a, b, env, print);
+	push_chunks(a, b, env, print);
 }

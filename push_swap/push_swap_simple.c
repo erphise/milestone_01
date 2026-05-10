@@ -6,7 +6,7 @@
 /*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 10:41:06 by ugutierr          #+#    #+#             */
-/*   Updated: 2026/05/09 16:27:07 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:45:04 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	get_min(t_node **stack, int exclude)
 	return (min);
 }
 
-void	sort_3(t_node **a, t_env *env)
+void	sort_3(t_node **a, t_env *env, bool print)
 {
 	int	first;
 	int	second;
@@ -47,24 +47,24 @@ void	sort_3(t_node **a, t_env *env)
 	second = (*a)->next->index;
 	third = (*a)->next->next->index;
 	if (first > second && second < third && first < third)
-		sa(a, env, true);
+		sa(a, env, print);
 	else if (first > second && second > third)
 	{
-		sa(a, env, true);
-		rra(a, env, true);
+		sa(a, env, print);
+		rra(a, env, print);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a, env, true);
+		ra(a, env, print);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a, env, true);
-		ra(a, env, true);
+		sa(a, env, print);
+		ra(a, env, print);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a, env, true);
+		rra(a, env, print);
 }
 
-void	move_min_top(t_node **a, t_env *env)
+void	move_min_top(t_node **a, t_env *env, bool print)
 {
 	int	min;
 	int	distance;
@@ -79,7 +79,7 @@ void	move_min_top(t_node **a, t_env *env)
 	{
 		while (i < distance)
 		{
-			ra(a, env, true);
+			ra(a, env, print);
 			i++;
 		}
 	}
@@ -87,13 +87,13 @@ void	move_min_top(t_node **a, t_env *env)
 	{
 		while (i < size - distance)
 		{
-			rra(a, env, true);
+			rra(a, env, print);
 			i++;
 		}
 	}
 }
 
-void	sort_simple(t_node **a, t_node **b, t_env *env)
+void	sort_simple(t_node **a, t_node **b, t_env *env, bool print)
 {
 	int	size;
 
@@ -102,16 +102,16 @@ void	sort_simple(t_node **a, t_node **b, t_env *env)
 	size = ft_nodesize(*a);
 	while (size > 3)
 	{
-		move_min_top(a, env);
-		pb(a, b, env, true);
+		move_min_top(a, env, print);
+		pb(a, b, env, print);
 		size--;
 	}
-	sort_3(a, env);
+	sort_3(a, env, print);
 	while (*b)
-		pa(a, b, env, true);
+		pa(a, b, env, print);
 }
 
-void	push_swap_simple(t_node **a, t_node **b, t_env *env)
+void	push_swap_simple(t_node **a, t_node **b, t_env *env, bool print)
 {
 	int	size;
 
@@ -121,10 +121,10 @@ void	push_swap_simple(t_node **a, t_node **b, t_env *env)
 	if (size == 2)
 	{
 		if ((*a)->index > (*a)->next->index)
-			sa(a, env, true);
+			sa(a, env, print);
 	}
 	else if (size == 3)
-		sort_3(a, env);
+		sort_3(a, env, print);
 	else
-		sort_simple(a, b, env);
+		sort_simple(a, b, env, print);
 }

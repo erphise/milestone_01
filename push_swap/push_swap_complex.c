@@ -6,7 +6,7 @@
 /*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 17:42:52 by berhugue          #+#    #+#             */
-/*   Updated: 2026/05/07 18:37:02 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:45:21 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_max_bits(t_node **stack)
 	return (max_bits);
 }
 
-void	push_swap_complex(t_node **a, t_node **b, t_env *env)
+void	push_swap_complex(t_node **a, t_node **b, t_env *env, bool print)
 {
 	t_node	*head_a;
 	int		i;
@@ -51,12 +51,12 @@ void	push_swap_complex(t_node **a, t_node **b, t_env *env)
 		{
 			head_a = *a;
 			if (((head_a->index >> i) & 1) == 1)
-				ra(a, env, true);
+				ra(a, env, print);
 			else
-				pb(a, b, env, true);
+				pb(a, b, env, print);
 		}
 		while (ft_nodesize(*b) != 0)
-			pa(a, b, env, true);
+			pa(a, b, env, print);
 		i++;
 	}
 }

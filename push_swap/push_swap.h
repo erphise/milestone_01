@@ -6,7 +6,7 @@
 /*   By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 10:41:06 by ugutierr          #+#    #+#             */
-/*   Updated: 2026/05/09 16:28:23 by berhugue         ###   ########.fr       */
+/*   Updated: 2026/05/10 12:52:06 by berhugue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "libft/libft.h"
 # include <stdbool.h>
 # include "get_next_line.h"
-# include <stdio.h>
 
 typedef enum e_strat
 {
@@ -61,7 +60,6 @@ int				ft_isspace(char c);
 int				is_valid_str(char *s);
 int				is_valid_input(int ac, char **av);
 int				is_keyword(char *s);
-void			del(void *p);
 t_list			*create_list(int ac, char **av);
 int				is_int(long n);
 long			ft_atol(const char *nptr);
@@ -81,15 +79,15 @@ int				print_ops(t_env *env);
 int				parse_input(t_node **l, t_env **env, int argc, char **argv);
 int				get_index(t_list *l, t_list *p);
 int				lst_to_node(t_list **l, t_node **n);
-void			push_swap(t_node **stack_a, t_env *env);
+void			push_swap(t_node **stack_a, t_env *env, bool print);
 t_node			*ft_nodenew(int value, int index);
 void			ft_nodeadd_back(t_node **node, t_node *new);
 void			ft_nodeclear(t_node **lst);
-void			push_swap_medium(t_node **a, t_node **b, t_env *env);
+void			push_swap_medium(t_node **a, t_node **b, t_env *env, bool p);
 
 //aux
 
-void			print_node(t_node *n);
+//void			print_node(t_node *n);
 
 // bernat:
 
@@ -117,11 +115,11 @@ int				rrr(t_node **stack_a, t_node **stack_b, t_env *env, bool print);
 int				is_sorted(t_node **stack);
 int				get_distance(t_node **stack, int index);
 int				get_min(t_node **stack, int val);
-void			sort_3(t_node **stack_a, t_env *env);
-void			move_min_top(t_node **a, t_env *env);
-void			sort_simple(t_node **a, t_node **b, t_env *env);
-void			push_swap_simple(t_node **a, t_node **b, t_env *env);
+void			sort_3(t_node **stack_a, t_env *env, bool print);
+void			move_min_top(t_node **a, t_env *env, bool print);
+void			sort_simple(t_node **a, t_node **b, t_env *env, bool print);
+void			push_swap_simple(t_node **a, t_node **b, t_env *env, bool p);
 int				get_max_bits(t_node **stack);
-void			push_swap_complex(t_node **a, t_node **b, t_env *env);
+void			push_swap_complex(t_node **a, t_node **b, t_env *env, bool p);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: berhugue <berhugue@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/26 10:05:15 by ugutierr          #+#    #+#              #
-#    Updated: 2026/05/07 18:35:20 by berhugue         ###   ########.fr        #
+#    Updated: 2026/05/10 13:37:18 by ugutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,8 @@ bonus: $(CHECKER_NAME)
 $(CHECKER_NAME): $(LIB) $(CHECKER_OBJS)
 	$(CC) $(CHECKER_OBJS) $(LIB) -o $(CHECKER_NAME)
 
-test: $(TESTER) $(NAME)
-	bash $(TESTER)
+#test: $(TESTER) $(NAME)
+#	bash $(TESTER)
 
 $(LIB):
 	make -C $(LIB_DIR)
@@ -64,4 +64,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
